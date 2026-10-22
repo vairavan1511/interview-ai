@@ -1,0 +1,147 @@
+version: "3.9"
+
+# ── Separate database per service ──────────────────────────
+# Each service gets its own Postgres database so Flyway history
+# tables never clash and schemas are fully isolated.
+
+services:
+
+  # ── Databases ────────────────────────────────────────────
+
+  db-user:
+    image: postgres:16-alpine
+    container_name: interviewai-db-user
+    environment:
+      POSTGRES_DB:       ${USER_DB_NAME:-interviewai_user}
+      POSTGRES_USER:     ${USER_DB_USER:-user_svc}
+      POSTGRES_PASSWORD: ${USER_DB_PASSWORD}
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_user_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${USER_DB_USER:-user_svc}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  db-content:
+    image: postgres:16-alpine
+    container_name: interviewai-db-content
+    environment:
+      POSTGRES_DB:       ${CONTENT_DB_NAME:-interviewai_content}
+      POSTGRES_USER:     ${CONTENT_DB_USER:-content_svc}
+      POSTGRES_PASSWORD: ${CONTENT_DB_PASSWORD}
+    ports:
+      - "5434:5432"
+    volumes:
+      - db_content_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${CONTENT_DB_USER:-content_svc}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  db-analysis:
+    image: postgres:16-alpine
+    container_name: interviewai-db-analysis
+    environment:
+      POSTGRES_DB:       ${ANALYSIS_DB_NAME:-interviewai_analysis}
+      POSTGRES_USER:     ${ANALYSIS_DB_USER:-analysis_svc}
+      POSTGRES_PASSWORD: ${ANALYSIS_DB_PASSWORD}
+    ports:
+      - "5435:5432"
+    volumes:
+      - db_analysis_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${ANALYSIS_DB_USER:-analysis_svc}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Services ──────────────────────────────────────────────
+
+  user-service:
+    build:
+      context: ./services/user-service
+      dockerfile: Dockerfile
+    container_name: interviewai-user-service
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL:      jdbc:postgresql://db-user:5432/${USER_DB_NAME:-interviewai_user}
+      SPRING_DATASOURCE_USERNAME: ${USER_DB_USER:-user_svc}
+      SPRING_DATASOURCE_PASSWORD: ${USER_DB_PASSWORD}
+      SPRING_FLYWAY_SCHEMAS:      user_svc
+      JWT_PRIVATE_KEY:            ${JWT_PRIVATE_KEY}
+      JWT_PUBLIC_KEY:             ${JWT_PUBLIC_KEY}
+      JWT_ACCESS_EXPIRY_MS:       ${JWT_ACCESS_EXPIRY_MS:-900000}
+      JWT_REFRESH_EXPIRY_MS:      ${JWT_REFRESH_EXPIRY_MS:-604800000}
+    depends_on:
+      db-user:
+        condition: service_healthy
+    restart: on-failure
+
+  content-service:
+    build:
+      context: ./services/content-service
+      dockerfile: Dockerfile
+    container_name: interviewai-content-service
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL:      jdbc:postgresql://db-content:5432/${CONTENT_DB_NAME:-interviewai_content}
+      SPRING_DATASOURCE_USERNAME: ${CONTENT_DB_USER:-content_svc}
+      SPRING_DATASOURCE_PASSWORD: ${CONTENT_DB_PASSWORD}
+      SPRING_FLYWAY_SCHEMAS:      content_svc
+      JWT_PUBLIC_KEY:             ${JWT_PUBLIC_KEY}
+    depends_on:
+      db-content:
+        condition: service_healthy
+    restart: on-failure
+
+  analysis-service:
+    build:
+      context: ./services/analysis-service
+      dockerfile: Dockerfile
+    container_name: interviewai-analysis-service
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_DATASOURCE_URL:      jdbc:postgresql://db-analysis:5432/${ANALYSIS_DB_NAME:-interviewai_analysis}
+      SPRING_DATASOURCE_USERNAME: ${ANALYSIS_DB_USER:-analysis_svc}
+      SPRING_DATASOURCE_PASSWORD: ${ANALYSIS_DB_PASSWORD}
+      SPRING_FLYWAY_SCHEMAS:      analysis_svc
+      JWT_PUBLIC_KEY:             ${JWT_PUBLIC_KEY}
+      GEMINI_API_KEY:             ${GEMINI_API_KEY}
+      GEMINI_MODEL:               ${GEMINI_MODEL:-gemini-1.5-flash}
+      AI_PROVIDER:                ${AI_PROVIDER:-gemini}
+      ANALYSIS_DAILY_CAP:         ${ANALYSIS_DAILY_CAP:-10}
+    depends_on:
+      db-analysis:
+        condition: service_healthy
+    restart: on-failure
+
+  gateway:
+    build:
+      context: ./services/gateway
+      dockerfile: Dockerfile
+    container_name: interviewai-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      USER_SERVICE_URL:     http://user-service:8081
+      CONTENT_SERVICE_URL:  http://content-service:8082
+      ANALYSIS_SERVICE_URL: http://analysis-service:8083
+      JWT_PUBLIC_KEY:       ${JWT_PUBLIC_KEY}
+      ALLOWED_ORIGINS:      ${ALLOWED_ORIGINS:-http://localhost:5173}
+    depends_on:
+      - user-service
+      - content-service
+      - analysis-service
+    restart: on-failure
+
+volumes:
+  db_user_data:
+  db_content_data:
+  db_analysis_data:

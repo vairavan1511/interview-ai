@@ -1,0 +1,38 @@
+﻿# Secrets - never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+hs_err_pid*
+
+# Node / React
+node_modules/
+dist/
+build/
+.vite/
+npm-debug.log*
+
+# Python (if used)
+__pycache__/
+*.pyc
+.venv/
+
+# IDE and OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Logs and local data
+*.log
+logs/
+*.sqlite
+*.db

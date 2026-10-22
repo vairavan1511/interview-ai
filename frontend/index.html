@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="InterviewAI — Practice coding, behavioral, and system design interviews with real-time AI feedback." />
+  <title>InterviewAI — Ace Every Interview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+
+  <!-- ── NAVBAR ── -->
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a href="#" class="nav-brand" aria-label="InterviewAI home">
+        <span class="brand-icon" aria-hidden="true">⬡</span>
+        InterviewAI
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#try-it">Try It</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="theme-toggle" class="btn btn-ghost theme-toggle-btn" aria-label="Switch to dark mode" aria-pressed="false">🌙</button>
+        <a href="#" class="btn btn-ghost">Log in</a>
+        <a href="#" class="btn btn-primary nav-cta">Get Started Free</a>
+      </div>
+      <label for="nav-toggle" class="nav-hamburger" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </label>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section id="hero" class="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg-blobs" aria-hidden="true">
+        <span class="blob blob-1"></span>
+        <span class="blob blob-2"></span>
+        <span class="blob blob-3"></span>
+
+        <!-- Blurred resume watermark background -->
+        <div class="resume-bg">
+          <div class="resume-sheet">
+            <div class="resume-header-block">
+              <div class="rline name"></div>
+              <div class="rline title short"></div>
+              <div class="rline contact xshort"></div>
+            </div>
+            <div class="resume-divider"></div>
+            <div class="resume-section">
+              <div class="rline section-heading"></div>
+              <div class="rline full"></div>
+              <div class="rline long"></div>
+              <div class="rline medium"></div>
+            </div>
+            <div class="resume-section">
+              <div class="rline section-heading"></div>
+              <div class="resume-job">
+                <div class="rline job-title medium"></div>
+                <div class="rline short"></div>
+                <div class="rline full"></div>
+                <div class="rline long"></div>
+                <div class="rline medium"></div>
+                <div class="rline full"></div>
+              </div>
+              <div class="resume-job">
+                <div class="rline job-title medium"></div>
+                <div class="rline short"></div>
+                <div class="rline full"></div>
+                <div class="rline long"></div>
+                <div class="rline medium"></div>
+              </div>
+            </div>
+            <div class="resume-section">
+              <div class="rline section-heading"></div>
+              <div class="rline full"></div>
+              <div class="rline long"></div>
+              <div class="rline medium"></div>
+              <div class="rline full"></div>
+              <div class="rline short"></div>
+            </div>
+            <div class="resume-section">
+              <div class="rline section-heading"></div>
+              <div class="resume-skills">
+                <div class="rskill"></div>
+                <div class="rskill"></div>
+                <div class="rskill"></div>
+                <div class="rskill"></div>
+                <div class="rskill"></div>
+                <div class="rskill"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="hero-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            AI-powered feedback (in development)
+          </div>
+          <h1 id="hero-heading" class="hero-title">
+            Land Your Dream Job with <span class="gradient-text">AI-Powered</span> Interview Coaching
+          </h1>
+          <p class="hero-sub">
+            Practice coding, behavioral, and system design interviews. Get structured AI feedback designed to help CS students prepare more effectively.
+          </p>
+          <div class="hero-actions">
+            <a href="#try-it" class="btn btn-primary btn-lg">
+              <span aria-hidden="true">▶</span> Try the Analyzer
+            </a>
+            <a href="#feedback" class="btn btn-outline btn-lg">See a Demo</a>
+          </div>
+          <p class="hero-note">No credit card required · Free forever plan available</p>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <!-- Floating info chips -->
+          <div class="hero-chip chip-1">
+            <span class="chip-icon">🏆</span>
+            <div><strong>Built for</strong><small>CS students</small></div>
+          </div>
+          <div class="hero-chip chip-2">
+            <span class="chip-icon">⚡</span>
+            <div><strong>Fast</strong><small>AI feedback</small></div>
+          </div>
+
+          <!-- Mock dashboard card -->
+          <div class="hero-card-mock">
+            <div class="mock-chrome">
+              <span class="mock-dot red"></span>
+              <span class="mock-dot yellow"></span>
+              <span class="mock-dot green"></span>
+              <span class="mock-url">interviewai.app/session</span>
+            </div>
+            <div class="mock-body">
+              <div class="mock-sidebar">
+                <div class="mock-nav-item active"></div>
+                <div class="mock-nav-item"></div>
+                <div class="mock-nav-item"></div>
+                <div class="mock-nav-item"></div>
+              </div>
+              <div class="mock-content">
+                <div class="mock-code-lines">
+                  <div class="mock-line accent w60"></div>
+                  <div class="mock-line w90"></div>
+                  <div class="mock-line w75"></div>
+                  <div class="mock-line w45"></div>
+                  <div class="mock-line accent w80"></div>
+                  <div class="mock-line w65"></div>
+                  <div class="mock-line w90"></div>
+                  <div class="mock-line w50"></div>
+                </div>
+                <div class="mock-result">
+                  <div class="mock-result-label">AI Score</div>
+                  <div class="mock-result-score">87<span>/100</span></div>
+                  <div class="mock-bar-wrap">
+                    <div class="mock-bar-fill" style="width:87%"></div>
+                  </div>
+                  <div class="mock-tags">
+                    <span class="mock-tag green">O(n) ✓</span>
+                    <span class="mock-tag blue">Clean code</span>
+                    <span class="mock-tag yellow">Add comments</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ── -->
+    <section id="how-it-works" class="how-it-works" aria-labelledby="hiw-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Process</span>
+          <h2 id="hiw-heading" class="section-title">From Zero to Offer-Ready in 3 Steps</h2>
+          <p class="section-sub">A structured path that mirrors real interview loops at top tech companies.</p>
+        </div>
+        <div class="steps-grid" role="list">
+          <article class="step-card" role="listitem">
+            <div class="step-number" aria-hidden="true">01</div>
+            <div class="step-icon" aria-hidden="true">🎯</div>
+            <h3>Choose &amp; Practice</h3>
+            <p>Pick from curated questions across coding, behavioral, and system design tracks.</p>
+          </article>
+          <div class="step-connector" aria-hidden="true">
+            <span class="connector-line"></span>
+            <span class="connector-arrow">›</span>
+          </div>
+          <article class="step-card" role="listitem">
+            <div class="step-number" aria-hidden="true">02</div>
+            <div class="step-icon" aria-hidden="true">🤖</div>
+            <h3>Get AI Feedback</h3>
+            <p>Our AI engine scores your answer on correctness, clarity, and communication.</p>
+          </article>
+          <div class="step-connector" aria-hidden="true">
+            <span class="connector-line"></span>
+            <span class="connector-arrow">›</span>
+          </div>
+          <article class="step-card" role="listitem">
+            <div class="step-number" aria-hidden="true">03</div>
+            <div class="step-icon" aria-hidden="true">📈</div>
+            <h3>Track &amp; Improve</h3>
+            <p>Review your progress dashboard, revisit weak areas, and watch your scores improve.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURES ── -->
+    <section id="features" class="features" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Features</span>
+          <h2 id="features-heading" class="section-title">Everything You Need to Succeed</h2>
+          <p class="section-sub">A complete toolkit built for serious interview preparation.</p>
+        </div>
+        <div class="features-grid" role="list">
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon-wrap" aria-hidden="true">
+              <span class="feature-icon">💻</span>
+            </div>
+            <h3>Coding Round Analysis</h3>
+            <p>Submit in Python, Java, C++, or JS. Get feedback on time complexity, edge cases, and code style.</p>
+            <span class="feature-tag">Core feature</span>
+          </article>
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon-wrap" aria-hidden="true">
+              <span class="feature-icon">🎤</span>
+            </div>
+            <h3>Behavioral Feedback</h3>
+            <p>Practice STAR-method answers. AI scores structure, relevance, and delivery with actionable suggestions.</p>
+          </article>
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon-wrap" aria-hidden="true">
+              <span class="feature-icon">🏗️</span>
+            </div>
+            <h3>System Design Evaluation</h3>
+            <p>Explain architectures in plain text. Receive feedback on scalability, trade-offs, and component choices.</p>
+          </article>
+          <article class="feature-card" role="listitem">
+            <div class="feature-icon-wrap" aria-hidden="true">
+              <span class="feature-icon">📊</span>
+            </div>
+            <h3>Progress Dashboard</h3>
+            <p>Visual analytics track your scores over time, highlight weak spots, and celebrate milestones.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TRY IT — LIVE ANSWER ANALYZER ── -->
+    <section id="try-it" class="try-it" aria-labelledby="try-it-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Try It Now</span>
+          <h2 id="try-it-heading" class="section-title">Analyze Your Behavioral Answer</h2>
+          <p class="section-sub">Type or paste a behavioral answer below and get instant structured feedback.</p>
+        </div>
+
+        <p class="try-it-disclaimer" role="note">
+          <strong>Demo:</strong> rule-based analysis. Real AI feedback is coming in a later version.
+        </p>
+
+        <div class="try-it-card">
+          <form id="analyzer-form" novalidate>
+            <div class="az-field">
+              <label for="question-select" class="az-label">Choose a question</label>
+              <select id="question-select" class="az-select" aria-label="Select a behavioral question">
+                <!-- Populated by JS -->
+              </select>
+            </div>
+
+            <div class="az-field">
+              <label for="answer-textarea" class="az-label">
+                Your answer
+                <span class="az-label-hint">(aim for 90–200 words)</span>
+              </label>
+              <textarea
+                id="answer-textarea"
+                class="az-textarea"
+                rows="8"
+                placeholder="Write your answer using the STAR method: Situation, Task, Action, Result…"
+                aria-describedby="word-count analyzer-error"
+                required
+              ></textarea>
+              <div class="az-textarea-footer">
+                <span id="analyzer-error" class="az-error" role="alert" aria-live="assertive"></span>
+                <span id="word-count" class="az-word-count" aria-live="polite">0 words</span>
+              </div>
+            </div>
+
+            <button type="submit" id="analyze-btn" class="btn btn-primary btn-lg az-submit-btn">
+              Analyze Answer
+            </button>
+          </form>
+
+          <!-- Results card (hidden until analysis runs) -->
+          <div id="analyzer-results" class="az-results" hidden aria-live="polite" aria-label="Analysis results">
+
+            <div class="az-results-header">
+              <div class="az-score-wrap" aria-label="Clarity score">
+                <svg class="az-score-svg" viewBox="0 0 36 36" aria-hidden="true">
+                  <circle cx="18" cy="18" r="15" fill="none" stroke="var(--clr-border)" stroke-width="3"/>
+                  <circle class="az-score-circle" cx="18" cy="18" r="15" fill="none"
+                    stroke="var(--clr-primary)" stroke-width="3"
+                    stroke-dasharray="0 100" stroke-dashoffset="25"
+                    stroke-linecap="round"/>
+                </svg>
+                <span class="az-score-num" aria-live="polite">0</span>
+              </div>
+              <div>
+                <div class="az-results-title">Clarity Score</div>
+                <div class="az-results-sub">out of 100 · rule-based</div>
+                <p id="az-length-note" class="az-length-note az-meta"></p>
+              </div>
+            </div>
+
+            <!-- Metric bars -->
+            <div class="az-metrics" aria-label="Score breakdown">
+              <div class="az-metric-row">
+                <span class="az-metric-label">STAR Structure</span>
+                <div class="az-metric-track" role="progressbar" aria-label="STAR structure score">
+                  <div class="az-metric-fill az-bar-star"></div>
+                </div>
+              </div>
+              <div class="az-metric-row">
+                <span class="az-metric-label">Answer Length</span>
+                <div class="az-metric-track" role="progressbar" aria-label="Answer length score">
+                  <div class="az-metric-fill az-bar-length"></div>
+                </div>
+              </div>
+              <div class="az-metric-row">
+                <span class="az-metric-label">Filler-Word Clarity</span>
+                <div class="az-metric-track" role="progressbar" aria-label="Filler word clarity score">
+                  <div class="az-metric-fill az-bar-filler"></div>
+                </div>
+              </div>
+              <div class="az-metric-row">
+                <span class="az-metric-label">Quantified Impact</span>
+                <div class="az-metric-track" role="progressbar" aria-label="Quantified impact score">
+                  <div class="az-metric-fill az-bar-quant"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STAR checklist -->
+            <div class="az-star-checklist" aria-label="STAR method checklist">
+              <div class="az-star-heading">STAR Checklist</div>
+              <ul class="az-star-list" role="list">
+                <li class="az-star-item az-star-situation" aria-label="Situation">
+                  <span class="az-star-icon" aria-hidden="true">✗</span>
+                  <span>Situation</span>
+                </li>
+                <li class="az-star-item az-star-task" aria-label="Task">
+                  <span class="az-star-icon" aria-hidden="true">✗</span>
+                  <span>Task</span>
+                </li>
+                <li class="az-star-item az-star-action" aria-label="Action">
+                  <span class="az-star-icon" aria-hidden="true">✗</span>
+                  <span>Action</span>
+                </li>
+                <li class="az-star-item az-star-result" aria-label="Result">
+                  <span class="az-star-icon" aria-hidden="true">✗</span>
+                  <span>Result</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Filler note -->
+            <p class="az-filler-note az-meta"></p>
+
+            <!-- Tips -->
+            <div class="az-tips" aria-label="Improvement tips">
+              <div class="az-tips-heading">💡 Improvement Tips</div>
+              <ul class="az-tips-list" role="list"></ul>
+            </div>
+
+          </div><!-- /az-results -->
+        </div><!-- /try-it-card -->
+
+        <!-- Recent attempts history -->
+        <div class="az-history" aria-label="Recent attempts">
+          <div class="az-history-header">
+            <span class="az-history-title">Recent Attempts</span>
+            <button id="clear-history-btn" class="btn btn-ghost az-clear-btn" type="button">Clear history</button>
+          </div>
+          <ul id="history-list" class="az-history-list" role="list" aria-live="polite"></ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── FEEDBACK PREVIEW ── -->
+    <section id="feedback" class="feedback-preview" aria-labelledby="feedback-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Live Preview</span>
+          <h2 id="feedback-heading" class="section-title">See AI Feedback in Action</h2>
+          <p class="section-sub">A sample feedback report after a mock coding interview — this is what you get every session.</p>
+        </div>
+
+        <div class="feedback-browser" role="region" aria-label="Sample AI feedback report">
+          <div class="browser-chrome">
+            <div class="browser-dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="browser-bar" aria-hidden="true">
+              <span class="browser-lock">🔒</span>
+              interviewai.app/feedback/session-4821
+            </div>
+          </div>
+
+          <div class="feedback-widget">
+            <div class="widget-header">
+              <div>
+                <div class="widget-title">Two Sum — LeetCode #1</div>
+                <div class="widget-meta">Submitted 2 min ago · Easy · Arrays &amp; Hashing</div>
+              </div>
+              <span class="widget-badge">✓ Completed</span>
+            </div>
+
+            <div class="score-row" aria-label="Score summary">
+              <div class="score-item">
+                <div class="score-ring" aria-hidden="true">
+                  <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="var(--clr-border)" stroke-width="3"/><circle cx="18" cy="18" r="15" fill="none" stroke="var(--clr-primary)" stroke-width="3" stroke-dasharray="82 100" stroke-dashoffset="25" stroke-linecap="round"/></svg>
+                  <span>87</span>
+                </div>
+                <div class="score-lbl">Overall</div>
+              </div>
+              <div class="score-item">
+                <div class="score-ring" aria-hidden="true">
+                  <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="var(--clr-border)" stroke-width="3"/><circle cx="18" cy="18" r="15" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="92 100" stroke-dashoffset="25" stroke-linecap="round"/></svg>
+                  <span class="green">92</span>
+                </div>
+                <div class="score-lbl">Correctness</div>
+              </div>
+              <div class="score-item">
+                <div class="score-ring" aria-hidden="true">
+                  <svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="none" stroke="var(--clr-border)" stroke-width="3"/><circle cx="18" cy="18" r="15" fill="none" stroke="var(--clr-accent)" stroke-width="3" stroke-dasharray="81 100" stroke-dashoffset="25" stroke-linecap="round"/></svg>
+                  <span class="cyan">81</span>
+                </div>
+                <div class="score-lbl">Clarity</div>
+              </div>
+            </div>
+
+            <blockquote class="feedback-comment">
+              <div class="comment-avatar" aria-hidden="true">AI</div>
+              <div>
+                <strong>AI Coach:</strong> Great use of a hash map to achieve O(n) time complexity — exactly what interviewers want to see. Your variable naming is clean and logic is easy to follow.
+                Consider <strong>thinking aloud before coding</strong> — explaining your approach first demonstrates strong communication and helps interviewers follow your reasoning.
+              </div>
+            </blockquote>
+
+            <div class="skill-bars" aria-label="Skill breakdown">
+              <div class="skill-row">
+                <span class="skill-name">Problem Solving</span>
+                <div class="skill-track" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Problem Solving 90%">
+                  <div class="skill-fill" style="width:90%"></div>
+                </div>
+                <span class="skill-pct">90%</span>
+              </div>
+              <div class="skill-row">
+                <span class="skill-name">Code Quality</span>
+                <div class="skill-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Code Quality 85%">
+                  <div class="skill-fill" style="width:85%"></div>
+                </div>
+                <span class="skill-pct">85%</span>
+              </div>
+              <div class="skill-row">
+                <span class="skill-name">Communication</span>
+                <div class="skill-track" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="Communication 78%">
+                  <div class="skill-fill" style="width:78%"></div>
+                </div>
+                <span class="skill-pct">78%</span>
+              </div>
+              <div class="skill-row">
+                <span class="skill-name">Edge Cases</span>
+                <div class="skill-track" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Edge Cases 82%">
+                  <div class="skill-fill" style="width:82%"></div>
+                </div>
+                <span class="skill-pct">82%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA BANNER ── -->
+    <section class="cta-banner" aria-labelledby="cta-heading">
+      <div class="container cta-inner">
+        <div>
+          <h2 id="cta-heading" class="cta-title">Ready to Ace Your Next Interview?</h2>
+          <p class="cta-sub">Start practicing today — free for all CS students.</p>
+        </div>
+        <a href="#try-it" class="btn btn-white btn-lg">Try the Analyzer →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer id="contact" aria-labelledby="footer-brand">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div id="footer-brand" class="footer-brand-name">
+            <span aria-hidden="true">⬡</span> InterviewAI
+          </div>
+          <p class="footer-tagline">Helping CS students prepare for technical interviews with AI-powered mock sessions and structured feedback.</p>
+          <div class="social-icons" aria-label="Social media links">
+            <a href="#" class="social-icon" aria-label="Twitter / X">𝕏</a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-icon" aria-label="GitHub">⌥</a>
+            <a href="#" class="social-icon" aria-label="YouTube">▶</a>
+          </div>
+        </div>
+        <nav class="footer-col" aria-label="Product links">
+          <h4>Product</h4>
+          <ul role="list">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#try-it">Try It</a></li>
+            <li><a href="#feedback">Demo</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Resource links">
+          <h4>Resources</h4>
+          <ul role="list">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Question Bank</a></li>
+            <li><a href="#">Study Guides</a></li>
+            <li><a href="#">Changelog</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Company links">
+          <h4>Company</h4>
+          <ul role="list">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 InterviewAI. All rights reserved.</span>
+        <span>Built with ❤️ for engineers everywhere.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" class="btt-btn" aria-label="Back to top" type="button">↑</button>
+
+  <script src="js/analyzer.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
